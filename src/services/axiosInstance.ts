@@ -1,10 +1,9 @@
 import axios from "axios";
 import endPoints from "./endPoints"; // Import endpoints
 
-const baseUrl =
-  process.env.NODE_ENV === "production"
-    ? "http://127.0.0.1:8000/api/v1/"
-    : "http://127.0.0.1:8000/api/v1/";
+const baseUrl = import.meta.env.PROD
+    ? import.meta.env.VITE_PUBLIC_PROD_BACKEND
+    : import.meta.env.VITE_PUBLIC_DEV_BACKEND;
 
 const api = axios.create({
   baseURL: baseUrl,
